@@ -12,7 +12,12 @@ use App\Achiever\Achievements\TenLessonsWatched;
 use App\Achiever\Achievements\ThreeCommentsWritten;
 use App\Achiever\Achievements\TwentyCommentsWritten;
 use App\Achiever\Achievements\TwentyFiveLessonsWatched;
+use App\Achiever\Badges\AdvancedBadge;
+use App\Achiever\Badges\BeginnerBadge;
+use App\Achiever\Badges\IntermediateBadge;
+use App\Achiever\Badges\MasterBadge;
 use App\Achiever\Support\AchievementSupport;
+use App\Achiever\Support\BadgeSupport;
 use Illuminate\Support\ServiceProvider;
 
 class AchieverServiceProvider extends ServiceProvider
@@ -30,6 +35,13 @@ class AchieverServiceProvider extends ServiceProvider
         TwentyCommentsWritten::class,
     ];
 
+    protected $badges = [
+        BeginnerBadge::class,
+        IntermediateBadge::class,
+        AdvancedBadge::class,
+        MasterBadge::class,
+    ];
+
     public function register()
     {
         /**
@@ -42,11 +54,21 @@ class AchieverServiceProvider extends ServiceProvider
             });
         });
 
+        $this->app->singleton('badges', function () {
+            return collect($this->badges)->map(function ($badge) {
+                return new $badge;
+            });
+        });
+
         /**
          * Support Facades for Achievements and Badges.
          */
         $this->app->bind('achievement_support', function () {
             return new AchievementSupport;
+        });
+
+        $this->app->bind('badge_support', function () {
+            return new BadgeSupport;
         });
     }
 }
