@@ -26,4 +26,3 @@ class MasterBadge extends BadgeType
         return 10;
     }
 }
-

@@ -11,6 +11,7 @@ abstract class BadgeType
 {
     /**
      * Achievement's related model record
+     *
      * @var Achievement
      */
     protected Model $model;
@@ -28,37 +29,26 @@ abstract class BadgeType
 
     /**
      * Qualify if the user can unlock the badge.
-     *
-     * @param User $user
-     * @return bool
      */
     abstract public function qualifier(User $user): bool;
 
     /**
      * Get the human-readable badge name.
-     *
-     * @return string
      */
     abstract public function name(): string;
 
     /**
      * Get the badge order number.
-     *
-     * @return int
      */
     abstract public function order(): int;
 
     /**
      * Get the required achievements to unlock the badge.
-     *
-     * @return int
      */
     abstract public function requiredAchievements(): int;
 
     /**
      * Get the badge model.
-     *
-     * @return Badge
      */
     public function getModel(): Badge
     {

@@ -26,4 +26,3 @@ class AdvancedBadge extends BadgeType
         return 8;
     }
 }
-

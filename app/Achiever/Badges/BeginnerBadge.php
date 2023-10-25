@@ -26,4 +26,3 @@ class BeginnerBadge extends BadgeType
         return 0;
     }
 }
-

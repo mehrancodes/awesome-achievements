@@ -26,4 +26,3 @@ class IntermediateBadge extends BadgeType
         return 4;
     }
 }
-

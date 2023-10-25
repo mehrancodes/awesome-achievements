@@ -1,20 +1,9 @@
 <?php
 
-use App\Achiever\Achievements\FiftyLessonsWatched;
-use App\Achiever\Achievements\FirstCommentWritten;
-use App\Achiever\Achievements\FirstLessonWatched;
-use App\Achiever\Achievements\FiveCommentsWritten;
-use App\Achiever\Achievements\FiveLessonsWatched;
-use App\Achiever\Achievements\TenCommentsWritten;
-use App\Achiever\Achievements\TenLessonsWatched;
-use App\Achiever\Achievements\ThreeCommentsWritten;
-use App\Achiever\Achievements\TwentyCommentsWritten;
-use App\Achiever\Achievements\TwentyFiveLessonsWatched;
 use App\Achiever\Badges\AdvancedBadge;
 use App\Achiever\Badges\BeginnerBadge;
 use App\Achiever\Badges\IntermediateBadge;
 use App\Achiever\Badges\MasterBadge;
-use App\Events\AchievementUnlocked;
 use App\Events\BadgeUnlocked;
 use App\Events\CommentWritten;
 use App\Events\LessonWatched;
