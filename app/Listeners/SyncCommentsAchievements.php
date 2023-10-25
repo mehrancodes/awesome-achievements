@@ -13,5 +13,7 @@ class SyncCommentsAchievements
         $user = $event->comment->user;
 
         $user->syncAchievements();
+
+        $user->syncBadges();
     }
 }

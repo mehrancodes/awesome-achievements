@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Achiever\Unlockable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -75,6 +76,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Achievement::class, 'user_achievement')
             ->using(UserAchievement::class)
+            ->withTimestamps();
+    }
+
+    /**
+     * The badge that a user has gained.
+     */
+    public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'user_badge')
+            ->using(UserBadge::class)
             ->withTimestamps();
     }
 }

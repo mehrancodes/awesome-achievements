@@ -11,5 +11,7 @@ class SyncLessonsAchievements
         $user = $event->user;
 
         $user->syncAchievements();
+
+        $user->syncBadges();
     }
 }
