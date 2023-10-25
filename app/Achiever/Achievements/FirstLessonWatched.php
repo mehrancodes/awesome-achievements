@@ -27,4 +27,3 @@ class FirstLessonWatched extends AchievementType
         return 5;
     }
 }
-

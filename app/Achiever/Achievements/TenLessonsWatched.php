@@ -27,4 +27,3 @@ class TenLessonsWatched extends AchievementType
         return 7;
     }
 }
-

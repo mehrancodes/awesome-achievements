@@ -27,4 +27,3 @@ class TwentyFiveLessonsWatched extends AchievementType
         return 8;
     }
 }
-

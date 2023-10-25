@@ -27,4 +27,3 @@ class FiveLessonsWatched extends AchievementType
         return 6;
     }
 }
-
