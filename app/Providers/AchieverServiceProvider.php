@@ -2,17 +2,27 @@
 
 namespace App\Providers;
 
+use App\Achiever\Achievements\FiftyLessonsWatched;
 use App\Achiever\Achievements\FirstCommentWritten;
+use App\Achiever\Achievements\FirstLessonWatched;
 use App\Achiever\Achievements\FiveCommentsWritten;
+use App\Achiever\Achievements\FiveLessonsWatched;
 use App\Achiever\Achievements\TenCommentsWritten;
+use App\Achiever\Achievements\TenLessonsWatched;
 use App\Achiever\Achievements\ThreeCommentsWritten;
 use App\Achiever\Achievements\TwentyCommentsWritten;
+use App\Achiever\Achievements\TwentyFiveLessonsWatched;
 use App\Achiever\Support\AchievementSupport;
 use Illuminate\Support\ServiceProvider;
 
 class AchieverServiceProvider extends ServiceProvider
 {
     protected $achievements = [
+        FirstLessonWatched::class,
+        FiveLessonsWatched::class,
+        TenLessonsWatched::class,
+        TwentyFiveLessonsWatched::class,
+        FiftyLessonsWatched::class,
         FirstCommentWritten::class,
         ThreeCommentsWritten::class,
         FiveCommentsWritten::class,
