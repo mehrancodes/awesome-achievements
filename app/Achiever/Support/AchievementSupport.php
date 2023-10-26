@@ -13,6 +13,7 @@ class AchievementSupport
         $locked = $this->getLockedAchievements($achievements);
 
         $collect = collect([
+            $this->firstAchievementByType($locked, AchievementsTypeEnum::LESSON),
             $this->firstAchievementByType($locked, AchievementsTypeEnum::COMMENT),
         ]);
 
@@ -33,7 +34,7 @@ class AchievementSupport
     public function firstAchievementByType(Collection $locked, AchievementsTypeEnum $type): ?AchievementModel
     {
         return $locked->first(function ($achievement) use ($type) {
-            return $achievement->type->isEqual($type);
+            return $achievement->type === $type;
         });
     }
 
