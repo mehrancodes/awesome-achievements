@@ -14,13 +14,11 @@ use App\Achiever\Badges\AdvancedBadge;
 use App\Achiever\Badges\BeginnerBadge;
 use App\Achiever\Badges\IntermediateBadge;
 use App\Achiever\Badges\MasterBadge;
-use App\Events\AchievementUnlocked;
 use App\Events\CommentWritten;
 use App\Events\LessonWatched;
 use App\Models\Comment;
 use App\Models\Lesson;
 use App\Models\User;
-use Illuminate\Support\Facades\Event;
 
 it('provides accurate achievement and badge status for a user', function ($comments, $lessons, $unlocks, $nextAchievements, $remainingToNextBadge, $currentBadge, $nextBadge) {
     $mehran = User::factory()->create();
@@ -43,11 +41,11 @@ it('provides accurate achievement and badge status for a user', function ($comme
 
     // Assert all the properties get filled correctly...
     $res->assertJson([
-        'unlocked_achievements' => array_map(fn($unlock) => app($unlock)->name(), $unlocks)
+        'unlocked_achievements' => array_map(fn ($unlock) => app($unlock)->name(), $unlocks),
     ]);
 
     $res->assertJson([
-        'next_available_achievements' => array_map(fn($next) => app($next)->name(), $nextAchievements)
+        'next_available_achievements' => array_map(fn ($next) => app($next)->name(), $nextAchievements),
     ]);
 
     $res->assertJson([
